@@ -1,3 +1,13 @@
+-------------------------            TO RUN          --------------------- 
+please first "Add Customer" button
+
+
+
+
+
+
+
+
 bank 
 - customers => accNum, name, balance(in single not all custs page), transactions
 ==> add customers
