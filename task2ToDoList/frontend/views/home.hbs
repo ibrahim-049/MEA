@@ -1,0 +1,18 @@
+{{>header}}
+{{>nav}}
+<table>
+    <thead>
+        <tr>Title</tr>
+        <tr>Content</tr>
+    </thead>
+
+    <tbody>
+        {{#each allTasks}}
+            <tr>
+                <td>{{this.title}}</td>
+                <td>{{this.content}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{>footer}}
