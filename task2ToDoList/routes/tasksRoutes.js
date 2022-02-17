@@ -9,4 +9,8 @@ router.post('/add', tasksController.addTaskPost)
 router.get('/edit/:title', tasksController.editTask)
 router.post('/edit/:title', tasksController.editTaskPost)
 
+router.post('/delete/:title', tasksController.deleteTask)
+
+router.post('/deleteAll', tasksController.deleteAll)
+
 module.exports = router

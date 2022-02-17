@@ -75,12 +75,26 @@ const editTaskPost = (req, res) => {
     }
     
 }
+const deleteTask = (req, res) => {
+    const allTasks = dealWithJsonData.readJSONData('./models/data.json')
+    const taskIndex = allTasks.findIndex(task => task.title === req.params.title)
+    allTasks.splice(taskIndex, 1)
+    dealWithJsonData.writeJSONData('./models/data.json', allTasks)
+    res.redirect('/')
+} 
+
+const deleteAll = (req,res) => {
+    dealWithJsonData.writeJSONData('./models/data.json', [])
+    res.redirect('/')
+}
 
 module.exports = {
     showAllTasks,
     addTask,
     addTaskPost,
     editTask,
-    editTaskPost
+    editTaskPost,
+    deleteTask,
+    deleteAll
 
 }

@@ -1,5 +1,8 @@
 {{>header}}
 {{>nav}}
+<form method="post" action="/deleteAll">
+    <button class="btn btn-danger mx-2">Delete All Tasks</button>
+</form>
 <table class="table table-bordered my-4">
     <thead>
         <tr>
@@ -37,8 +40,8 @@
                                     </form> --}}
                                 </li>
                                 <li class="list-inline-item">
-                                    <form class="form-inline pull-right" method="post" action="" role="form">
-                                        <button href="/delete/{{this.title}}" class="btn btn-danger ">Delete Task</button>
+                                    <form class="form-inline pull-right" method="post" action="/delete/{{this.title}}" role="form">
+                                        <button class="btn btn-danger ">Delete Task</button>
                                     </form>
                                 </li>
                             </ul>
