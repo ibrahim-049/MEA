@@ -1,18 +1,69 @@
 {{>header}}
 {{>nav}}
-<table>
+<table class="table table-bordered my-4">
     <thead>
-        <tr>Title</tr>
-        <tr>Content</tr>
+        <tr>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Controls    </th>
+        </tr>
     </thead>
 
     <tbody>
-        {{#each allTasks}}
-            <tr>
-                <td>{{this.title}}</td>
-                <td>{{this.content}}</td>
+        {{#unless isEmpty}}
+            <tr class="alert alert-danger text-center">
+                <td colspan="4">No Tasks Yet</td>
             </tr>
-        {{/each}}
+        {{else}}
+            {{#each allTasks}}
+                <tr>
+                    <td>{{this.title}}</td>
+                    <td>{{this.content}}</td>
+                    <td>
+                          
+    
+                        <div class="container">
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <a href="/show/{{this.title}}" class="btn btn-success">Show Task</a>
+                                    {{!-- <form class="form-inline pull-right" method="post" action="" role="form">
+                                       <button href="/show/{{this.title}}" class="btn btn-success ">Show Task</button>
+                                    </form> --}}
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="/edit/{{this.title}}" class="btn btn-warning mx-2">Edit Task</a>
+                                    {{!-- <form class="form-inline pull-right" method="post" action="" role="form">
+                                        <button href="/edit/{{this.title}}" class="btn btn-warning ">Edit Task</button>
+                                    </form> --}}
+                                </li>
+                                <li class="list-inline-item">
+                                    <form class="form-inline pull-right" method="post" action="" role="form">
+                                        <button href="/delete/{{this.title}}" class="btn btn-danger ">Delete Task</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+
+
+    
+
+                        {{!-- <form class="form-inline">
+                            <button href="/show/{{this.title}}" class="btn btn-success mx-5">Show Task</button>
+                        </form>
+                        <form class="form-inline">
+                            <button href="/edit/{{this.title}}" class="btn btn-warning mx-5">Edit Task</button>
+                        </form>
+                        <form><br>
+                            <button href="/delete/{{this.title}}" class="btn btn-danger mx-5">Delete Task</button>
+                        </form> --}}
+
+                        {{!-- <a href="/show/{{this.title}}" class="btn btn-success mx-2">Show Task</a>
+                        <a href="/edit/{{this.title}}" class="btn btn-warning mx-2">Edit Task</a>
+                        <a href="/delete/{{this.title}}" class="btn btn-danger mx-2">Delete Task</a> --}}
+                    </td>
+                </tr>
+            {{/each}}
+        {{/unless}}
     </tbody>
 </table>
 {{>footer}}

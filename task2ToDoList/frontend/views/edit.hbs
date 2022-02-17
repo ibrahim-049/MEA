@@ -1,0 +1,17 @@
+{{>header}}
+{{>nav}}
+    <form method="post">
+        {{#if titleFlag}}
+            <h1 class="text-danger"> {{titleFlag}} </h1>
+        {{/if}}
+        <div class="mb-3">
+            <input class="form-control" placeholder="title" name="title" value="{{task.title}}">
+        </div>
+        <div class="mb-3">
+            <input class="form-control" placeholder="content" name="content" value="{{task.content}}">
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-primary">Edit</button>
+        </div>
+    </form>
+{{>footer}}
