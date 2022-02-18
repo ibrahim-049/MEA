@@ -33,7 +33,8 @@ const addTaskPost = (req, res)=> {
     else{
         res.render('addTask', {
             pageTitle: 'Add Task',
-            titleFlag:"Task title already exists. Please enter another title"
+            titleFlag:"Task title already exists. Please enter another title",  
+            task: req.body
         })
     }
     
@@ -88,6 +89,15 @@ const deleteAll = (req,res) => {
     res.redirect('/')
 }
 
+const showTask = (req, res) => {
+    const allTasks = dealWithJsonData.readJSONData('./models/data.json')
+    const task = allTasks.find(task => task.title === req.params.title)
+
+    res.render('showTask', {
+        pageTitle: `Task ${task.title}`,
+        task
+    })
+}
 module.exports = {
     showAllTasks,
     addTask,
@@ -95,6 +105,7 @@ module.exports = {
     editTask,
     editTaskPost,
     deleteTask,
-    deleteAll
+    deleteAll,
+    showTask
 
 }

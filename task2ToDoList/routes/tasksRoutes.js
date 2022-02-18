@@ -13,4 +13,6 @@ router.post('/delete/:title', tasksController.deleteTask)
 
 router.post('/deleteAll', tasksController.deleteAll)
 
+router.get('/show/:title', tasksController.showTask)
+
 module.exports = router
