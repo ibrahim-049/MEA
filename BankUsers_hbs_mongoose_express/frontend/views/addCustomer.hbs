@@ -1,0 +1,22 @@
+{{>header}}
+{{>navbar}}
+{{#if msg}}
+    <div class="alert alert-danger">
+        {{msg}}
+    </div>
+    {{/if}}
+    <form method="post" action="/test">
+        <div class="mb-3">
+            <input class="form-control" placeholder="name" name="name" value="{{customer.name}}">
+        </div>
+        <div class="mb-3">
+            <input class="form-control" placeholder="password" name="password"  value="{{customer.password}}">
+        </div>
+        <div class="mb-3">
+            <input class="form-control" placeholder="balance" name="balance"  value="{{customer.balance}}">
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-primary">Add Customer</button>
+        </div>
+    </form>
+{{>footer}}

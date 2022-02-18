@@ -1,0 +1,68 @@
+{{>header}}
+{{>navbar}}
+<form method="post" action="/deleteAll">
+    <button class="btn btn-danger mx-2">Delete All Customers</button>
+</form>
+<table class="table table-bordered my-4">
+    <thead>
+        <tr>
+            <th>Account Number</th>
+            <th>Name</th>
+            <th>Controls    </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#unless isEmpty}}
+            <tr class="alert alert-danger text-center">
+                <td colspan="4">No Tasks Yet</td>
+            </tr>
+        {{else}}
+            {{#each customers}}
+                <tr>
+                    <td>{{this._id}}</td>
+                    <td>{{this.name}}</td>
+                    <td>
+                          
+    
+                        <div class="container">
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <a href="/show/{{this._id}}" class="btn btn-success">Show Customer</a>
+
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="/edit/{{this._id}}" class="btn btn-warning mx-2">Edit Customer</a>
+
+                                </li>
+                                <li class="list-inline-item">
+                                    <form class="form-inline pull-right" method="post" action="/delete/{{this._id}}" role="form">
+                                        <button class="btn btn-danger ">Delete Customer</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+
+
+    
+
+                        {{!-- <form class="form-inline">
+                            <button href="/show/{{this.title}}" class="btn btn-success mx-5">Show Task</button>
+                        </form>
+                        <form class="form-inline">
+                            <button href="/edit/{{this.title}}" class="btn btn-warning mx-5">Edit Task</button>
+                        </form>
+                        <form><br>
+                            <button href="/delete/{{this.title}}" class="btn btn-danger mx-5">Delete Task</button>
+                        </form> --}}
+
+                        {{!-- <a href="/show/{{this.title}}" class="btn btn-success mx-2">Show Task</a>
+                        <a href="/edit/{{this.title}}" class="btn btn-warning mx-2">Edit Task</a>
+                        <a href="/delete/{{this.title}}" class="btn btn-danger mx-2">Delete Task</a> --}}
+                    </td>
+                </tr>
+            {{/each}}
+        {{/unless}}
+    </tbody>
+</table>
+{{>footer}}
