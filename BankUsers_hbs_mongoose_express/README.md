@@ -1,5 +1,8 @@
--------------------------            TO RUN          --------------------- 
-please first "Add Customer" button
+--------------- Notes about system --------------------
+the add transaction function will check if you have enough balance if you are withdrawing and will refuse transaction if you dont have enough balance
+balance is updated upon depositing or withdrawing
+
+
 
 
 
