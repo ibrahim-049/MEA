@@ -12,6 +12,7 @@ const customer = mongoose.model('customer', {
         type:String,
         required:true,
         trim:true,
+
         
         validate(value){
             if( value.includes( this.name ) )
@@ -20,11 +21,11 @@ const customer = mongoose.model('customer', {
     },
     balance:{
         type:Number,
-        default:0,
+        default: 0
     },
     transactions:[
-        {
-            t:{
+        
+            {
                 type:{
                     type:String,
                     enum:["withdraw", "deposit"],
@@ -32,10 +33,10 @@ const customer = mongoose.model('customer', {
                 },
                 amount:{
                     type:Number,
-                    required:true
+                    required:true,
                 }
             }
-        }
+        
     ]
 })
 

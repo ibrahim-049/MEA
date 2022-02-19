@@ -1,0 +1,65 @@
+{{>header}}
+{{>navbar}}
+<a href="/addTransaction/{{customer._id}}" class="btn btn-success m-4">Add Transaction</a>
+<form method="post" action="/deleteAllTransactions/{{customer._id}}">
+    <button class="btn btn-danger mx-4">Delete All Transactions</button>
+</form>
+<div class="p-3">
+    {{#if customer}}
+        <div class="row">
+            <div class="col-4">
+            <div class="m-2 border border-3 border-primary p-5">
+                Customer Account Number: {{customer._id}}
+            </div>
+            </div>
+            <div class="col-4">
+            <div class="m-2 border border-3 border-primary p-5">
+                Customer Name: {{customer.name}}
+            </div>
+            </div>
+            {{!-- <div class="col-4">
+            <div class="m-2 border border-3 border-primary p-5">
+                Customer Password:{{customer.password}}
+            </div>
+            </div> --}}
+            <div class="col-4">
+            <div class="m-2 border border-3 border-primary p-5">
+                Customer Balance: {{customer.balance}}
+            </div>
+            </div>
+            <div class="col-4">
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Transaction ID</td>
+            <td>Transactions Type</td>
+            <td>Transactions Amount</td>
+            <td>Controls</td>
+        </tr>
+        {{#unless hasTransactions}}
+        <tr>    
+            <td colspan="3"> No Transactions Yet</td>
+        </tr>
+        {{else}}
+        {{#each customer.transactions}}
+        <tr>
+            <td>{{this._id}}</td>
+            <td>{{this.type}}</td>
+            <td>{{this.amount}}</td>
+            <td>
+                <form method="post" action="/deleteTransaction/{{this._id}}">
+                    <button class="btn btn-danger">Delete Transaction</button>
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+
+        {{/unless}}
+    </thead>
+</table>
+        </div>
+    {{else}}
+        Customer not found
+    {{/if}}
+</div>
+{{>footer}}

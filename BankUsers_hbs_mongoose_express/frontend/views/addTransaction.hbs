@@ -1,0 +1,19 @@
+{{>header}}
+{{>navbar}}
+{{#if msg}}
+    <div class="alert alert-danger">
+        {{msg}}
+    </div>
+    {{/if}}
+    <form method="post">
+        <div class="mb-3">
+            <input class="form-control" placeholder="type" name="type" value="{{transactions.type}}">
+        </div>
+        <div class="mb-3">
+            <input class="form-control" placeholder="amount" name="amount"  value="{{transactions.amount}}">
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-primary">Add Transaction</button>
+        </div>
+    </form>
+{{>footer}}
